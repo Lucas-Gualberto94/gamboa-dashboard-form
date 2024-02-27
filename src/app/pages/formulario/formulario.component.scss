@@ -1,0 +1,53 @@
+.background-container {
+  height: 100vh;
+  background: linear-gradient(to bottom, red 0, red 40%, white 40%);
+  transition: background-position-y 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.background-container.scrolled {
+  background-position-y: -100%;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 70px;
+}
+
+.flex-item {
+  width: 100%;
+  padding: 0.75rem;
+}
+
+@media (min-width: 250px) {
+
+  .flex-container{
+    flex-direction: column;
+  }
+  .flex-item {
+    width: 90%;
+    margin: 0px auto;
+  }
+    .flex-item:nth-child(2) {
+      width: 66.333333%;
+      margin: 50px auto;
+    }
+}
+
+@media (min-width: 992px) {
+  .flex-container{
+    flex-direction: row;
+  }
+  .flex-item {
+    width: 66.666667%; /* Equivalente a lg:w-8/12 do Tailwind */
+  }
+
+  .flex-item:nth-child(2) {
+    width: 33.333333%; /* Equivalente a lg:w-4/12 do Tailwind */
+  }
+}
+
+

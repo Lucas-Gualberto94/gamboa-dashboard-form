@@ -1,0 +1,75 @@
+<div class=" container">
+  <div class="content-center">
+    <div >
+      <div
+        class="container-styles"
+      >
+
+        <div class="flex-auto-container">
+          <div class="text-blue-gray-400-bold">
+            <small>Sign in with credentials</small>
+          </div>
+          <form (ngSubmit)="onSubmit()">
+            <div class="relative-container">
+              <label
+                class="label-styles"
+                htmlFor="grid-password"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                class="input-styles"
+                placeholder="Email"
+                [(ngModel)]="email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="relative-container">
+              <label
+                class="label-styles"
+                htmlFor="grid-password"
+              >
+                Password
+              </label>
+    <input class="input-styles" [(ngModel)]="password" name="password" placeholder="Password" autocomplete="on" matInput [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+            </div>
+            <div>
+              <label class="inline-flex-container">
+                <input
+                  type="checkbox"
+                  class="checkbox-styles"
+                  [(ngModel)]="rememberMe"
+                  name="rememberMe"
+                />
+                <span class="text-styles">
+                  Remember me
+                </span>
+              </label>
+            </div>
+
+            <div class="center-text">
+              <button
+                class="button-styles"
+                type="submit"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="width-half">
+          <a href="#" class="forget-style">
+            <small>Forgot password?</small>
+          </a>
+        </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,166 @@
+.container__profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5rem;
+  margin-top: 4rem;
+}
+
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.card__photo {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.photo {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 9999px;
+  height: auto;
+  vertical-align: middle;
+  border: none;
+  position: absolute;
+  margin: -4rem;
+  margin-left: -5rem;
+  max-width: 150px;
+}
+
+.card__container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.card__conteudo {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.conteudo__text {
+  margin-right: 1rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.conteudo__numero {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #66788a;
+}
+
+.span__description {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+
+.text-center {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.text__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: #64748b;
+}
+
+.text__address {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: #9ca3af;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+
+.text-blueGray-400 {
+  color: #9ca3af; // Ajuste a cor com base na sua configuração do Tailwind CSS
+}
+
+.text__icone {
+  font-size: 1.125rem;
+  margin-right: 0.5rem;
+  color: #9ca3af;
+}
+
+.icon_x {
+  margin-bottom: 0.5rem;
+  color: #6b7280; // Ajuste a cor conforme necessário
+  margin-top: 2.5rem;
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card__info {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid #cbd5e0;
+  border-color: #e5e7eb;
+  text-align: center;
+}
+
+
+.container__info {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.info__text {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  line-height: 1.625; /* Ajuste conforme necessário */
+  color: #4a5568; /* Cor do texto, ajuste conforme necessário */
+}
+
+.info__link {
+  font-weight: normal;
+  color: #e53e3e; /* Cor do texto vermelho, ajuste conforme necessário */
+}
+

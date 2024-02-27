@@ -1,0 +1,154 @@
+<div
+  class="container__campo"
+>
+  <div class="campo__header">
+    <div class="text-center">
+      <h6 class="text-blueGray-700">My account</h6>
+      <button
+        class="bg-red-600 active:bg-red-700 shadow hover:shadow-md"
+        type="button"
+      >
+        Settings
+      </button>
+    </div>
+  </div>
+  <div class="flex-auto">
+    <form>
+      <h6 class="campo__title">
+        Informações do cliente
+      </h6>
+      <div class="campo__inf">
+        <div class="campo__witdh">
+          <div class="campo__relative">
+            <label
+              class="relative__label"
+              htmlFor="grid-password"
+            >
+              Nome
+            </label>
+            <input
+              type="text"
+              class="relative__input"
+              value="lucky.jesse"
+            />
+          </div>
+        </div>
+        <div class="campo__witdh">
+          <div class="campo__relative">
+            <label
+              class="relative__label"
+              htmlFor="grid-password"
+            >
+              Email address
+            </label>
+            <input
+              type="email"
+              class="relative__input"
+              value="jesse@example.com"
+            />
+          </div>
+        </div>
+        <div class="campo__witdh">
+          <div class="campo__relative">
+            <label
+              class="relative__label"
+              htmlFor="grid-password"
+            >
+              endereço
+            </label>
+            <input
+              type="text"
+              class="relative__input"
+              value="Lucky"
+            />
+          </div>
+        </div>
+
+        <div class="campo__width">
+          <div class="campo__relative">
+            <label
+              class="relative__label"
+              htmlFor="grid-password"
+            >
+              Código Postal (CEP)
+            </label>
+            <input
+              type="text"
+              class="relative__input"
+              value="Postal Code"
+            />
+          </div>
+        </div>
+
+        <div class="campo__witdh">
+          <div class="campo__relative">
+            <label
+              class="relative__label"
+              htmlFor="grid-password"
+            >
+              Telefone
+            </label>
+            <input
+              type="text"
+              class="relative__input"
+              value="Jesse"
+            />
+            <mat-checkbox class="example-margin" [(ngModel)]="checked">WhatsApp</mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <hr class="campo__division" />
+
+      <h6 class="campo__title">
+        Desenvolvimento
+      </h6>
+      <div class="campo__inf">
+
+        <div class="campo__witdh">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Digite aqui o título da demanda</mat-label>
+            <div class="input__botao">
+              <input matInput class="input__titulo">
+              <button mat-button (click)="toggleCampoTexto()">Add descrição</button>
+            </div>
+            <div *ngIf="mostrarCampoTexto" class="divisoria">
+              <mat-label>Descrição da demanda </mat-label>
+              <input  matInput placeholder="descrição" #descricaoInput>
+            </div>
+          </mat-form-field>
+
+
+      </div>
+      </div>
+
+      <hr class="campo__division" />
+
+      <h6 class="campo__title">
+        About Me
+      </h6>
+      <div class="campo__inf">
+        <div class="campo__width">
+          <div class="campo__relative">
+            <label
+              class="relative__label"
+              htmlFor="grid-password"
+            >
+              About me
+            </label>
+            <textarea
+              type="text"
+              class="relative__input"
+              rows="4"
+            >
+                  A beautiful UI Kit and Admin for Angular & Tailwind CSS. It is Free
+                  and Open Source.
+                </textarea
+            >
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

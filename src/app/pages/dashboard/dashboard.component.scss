@@ -1,0 +1,9 @@
+.background-container {
+  height: 100vh;
+  background: linear-gradient(to bottom, red 0, red 40%, white 40%);
+  transition: background-position-y 0.3s ease;
+}
+
+.background-container.scrolled {
+  background-position-y: -100%;
+}
