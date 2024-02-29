@@ -1,3 +1,30 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.toolbar__style {
+  background: red;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  display: flex !important;
+  box-sizing: border-box !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+
+
+.fixed-sidenav {
+  position: fixed;
+}
+
 .background-container {
   height: 100vh;
   background: linear-gradient(to bottom, red 0, red 40%, white 40%);
@@ -13,7 +40,6 @@
 
 .flex-container {
   display: flex;
-  flex-direction: row;
   margin-top: 70px;
 }
 
@@ -49,5 +75,8 @@
     width: 33.333333%; /* Equivalente a lg:w-4/12 do Tailwind */
   }
 }
+
+
+
 
 

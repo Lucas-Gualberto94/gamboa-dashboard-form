@@ -3,12 +3,13 @@
 >
   <div class="campo__header">
     <div class="text-center">
-      <h6 class="text-blueGray-700">My account</h6>
+      <h6 class="text-blueGray-700">Registro do cliente</h6>
       <button
         class="bg-red-600 active:bg-red-700 shadow hover:shadow-md"
         type="button"
+        (click)="adicionarInfoCliente()"
       >
-        Settings
+        Submeter
       </button>
     </div>
   </div>
@@ -29,7 +30,10 @@
             <input
               type="text"
               class="relative__input"
-              value="lucky.jesse"
+              placeholder="Digite o nome completo do cliente*"
+              required
+              [(ngModel)]="clienteAtual.nome"
+              name="nome"
             />
           </div>
         </div>
@@ -39,12 +43,15 @@
               class="relative__label"
               htmlFor="grid-password"
             >
-              Email address
+              Email
             </label>
             <input
               type="email"
               class="relative__input"
-              value="jesse@example.com"
+              placeholder="Digite o email do cliente*"
+              required
+              [(ngModel)]="clienteAtual.email"
+              name="email"
             />
           </div>
         </div>
@@ -59,23 +66,26 @@
             <input
               type="text"
               class="relative__input"
-              value="Lucky"
+              placeholder="Digite o endereço do cliente"
+              [(ngModel)]="clienteAtual.endereco"
+              name="endereco"
             />
           </div>
         </div>
-
-        <div class="campo__width">
+        <div class="campo__witdh">
           <div class="campo__relative">
             <label
               class="relative__label"
               htmlFor="grid-password"
             >
-              Código Postal (CEP)
+            Código Postal (CEP)
             </label>
             <input
               type="text"
               class="relative__input"
-              value="Postal Code"
+              placeholder="digite o CEP"
+              [(ngModel)]="clienteAtual.cep"
+              name="cep"
             />
           </div>
         </div>
@@ -91,7 +101,10 @@
             <input
               type="text"
               class="relative__input"
-              value="Jesse"
+              placeholder="digite o principal telefone de contato*"
+              required
+              [(ngModel)]="clienteAtual.telefone"
+              name="telefone"
             />
             <mat-checkbox class="example-margin" [(ngModel)]="checked">WhatsApp</mat-checkbox>
           </div>
@@ -107,47 +120,50 @@
 
         <div class="campo__witdh">
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Digite aqui o título da demanda</mat-label>
+            <mat-label>Digite o título da demanda</mat-label>
             <div class="input__botao">
-              <input matInput class="input__titulo">
-              <button mat-button (click)="toggleCampoTexto()">Add descrição</button>
+              <input matInput class="input__titulo" [(ngModel)]="demandaAtual.titulo" required name="titulo">
+              <button mat-button (click)="toggleCampoTexto()" [disabled]="demandaAtual.titulo.length < 3">Add descrição</button>
             </div>
             <div *ngIf="mostrarCampoTexto" class="divisoria">
               <mat-label>Descrição da demanda </mat-label>
-              <input  matInput placeholder="descrição" #descricaoInput>
+              <input  matInput placeholder="descrição" #descricaoInput [(ngModel)]="demandaAtual.descricao" name="descricao" >
             </div>
           </mat-form-field>
 
+          <mat-form-field class="hora-form-field">
+            <mat-label>Horas front-End</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="demandaAtual.horasFrontEnd" name="horasFrontEnd">
+          </mat-form-field>
 
-      </div>
+
+          <mat-form-field class="hora-form-field">
+            <mat-label>Horas back-End</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="demandaAtual.horasBackEnd" name="horasBackEnd">
+          </mat-form-field>
+
+        </div>
+
+        <button mat-raised-button color="primary" (click)="adicionarDemanda()">Salvar demanda</button>
+
       </div>
 
       <hr class="campo__division" />
 
       <h6 class="campo__title">
-        About Me
+        Demandas registradas
       </h6>
-      <div class="campo__inf">
-        <div class="campo__width">
-          <div class="campo__relative">
-            <label
-              class="relative__label"
-              htmlFor="grid-password"
-            >
-              About me
-            </label>
-            <textarea
-              type="text"
-              class="relative__input"
-              rows="4"
-            >
-                  A beautiful UI Kit and Admin for Angular & Tailwind CSS. It is Free
-                  and Open Source.
-                </textarea
-            >
-          </div>
-        </div>
+
+      <div *ngFor="let demanda of demandas let i = index" >
+        <h2> Demanda {{ i + 1 }}: {{ demanda.titulo }}</h2>
+        <p>{{ demanda.descricao }}</p>
+        <h2>Horas necessárias para a criação da demanda {{ demanda.titulo }} </h2>
+        <p> Para a construção do Front-End será necessario {{ demanda.horasFrontEnd }} horas</p>
+        <p> Para a construção do Back-end será necessário {{ demanda.horasBackEnd }} horas</p>
+        <hr />
       </div>
+
+      <button (click)="sendDataToSibling()">Send Data to B</button>
     </form>
   </div>
 </div>

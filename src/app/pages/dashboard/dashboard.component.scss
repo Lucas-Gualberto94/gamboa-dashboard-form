@@ -1,7 +1,30 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.toolbar__style {
+  background: red;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  display: flex !important;
+  box-sizing: border-box !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
 .background-container {
   height: 100vh;
   background: linear-gradient(to bottom, red 0, red 40%, white 40%);
   transition: background-position-y 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .background-container.scrolled {

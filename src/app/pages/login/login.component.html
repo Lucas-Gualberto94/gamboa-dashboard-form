@@ -7,7 +7,7 @@
 
         <div class="flex-auto-container">
           <div class="text-blue-gray-400-bold">
-            <small>Sign in with credentials</small>
+            <small>Entre com suas credenciais</small>
           </div>
           <form (ngSubmit)="onSubmit()">
             <div class="relative-container">
@@ -32,9 +32,9 @@
                 class="label-styles"
                 htmlFor="grid-password"
               >
-                Password
+                Senha
               </label>
-    <input class="input-styles" [(ngModel)]="password" name="password" placeholder="Password" autocomplete="on" matInput [type]="hide ? 'password' : 'text'">
+    <input class="input-styles" [(ngModel)]="password" name="password" placeholder="Senha" autocomplete="on" matInput [type]="hide ? 'password' : 'text'">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
@@ -48,7 +48,7 @@
                   name="rememberMe"
                 />
                 <span class="text-styles">
-                  Remember me
+                  lembrar-me
                 </span>
               </label>
             </div>
@@ -58,7 +58,7 @@
                 class="button-styles"
                 type="submit"
               >
-                Sign In
+                Entrar
               </button>
             </div>
           </form>
@@ -66,7 +66,7 @@
 
         <div class="width-half">
           <a href="#" class="forget-style">
-            <small>Forgot password?</small>
+            <small>Esqueceu a senha?</small>
           </a>
         </div>
 

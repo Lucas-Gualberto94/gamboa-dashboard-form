@@ -1,16 +1,28 @@
-import { Component, HostListener } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { AdminNavbarComponent } from '../../components/admin-navbar/admin-navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-orcamento',
   standalone: true,
-  imports: [MatSidenavModule, SidebarComponent, AdminNavbarComponent],
+  imports: [
+    MatSidenavModule,
+    SidebarComponent,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    AdminNavbarComponent
+  ],
   templateUrl: './orcamento.component.html',
   styleUrl: './orcamento.component.scss'
 })
-export class OrcamentoComponent {
+export class OrcamentoComponent implements OnInit {
+  @ViewChild('snav') snav!: MatSidenav;
 
   isScrolled = false;
 
@@ -20,4 +32,27 @@ export class OrcamentoComponent {
     this.isScrolled = window.scrollY > 50;
   }
 
+  mobileQuery: MediaQueryList;
+
+  private _mobileQueryListener: () => void;
+
+  constructor(private media: MediaMatcher, private changeDetectorRef: ChangeDetectorRef) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => this.changeDetectorRef.detectChanges();
+  }
+
+  ngOnInit(): void {
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  toggleSidebar(): void {
+    if (this.mobileQuery.matches) {
+      // Apenas fecha o sidebar quando a tela é menor ou igual a 600px
+      this.snav.toggle();
+    }
+  }
 }
