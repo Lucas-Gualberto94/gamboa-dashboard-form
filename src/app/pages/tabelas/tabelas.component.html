@@ -1,13 +1,13 @@
 <div class="example-container">
   <mat-sidenav-container >
-    <mat-sidenav #snav mode="side" [opened]="!mobileQuery.matches">
+    <mat-sidenav #snav mode="side">
       <app-sidebar></app-sidebar>
     </mat-sidenav>
 
     <mat-sidenav-content>
       <div class="background-container">
         <mat-toolbar class="toolbar__style">
-          <button mat-icon-button (click)="toggleSidebar()" [disabled]="!mobileQuery.matches">
+          <button mat-icon-button (click)="toggleSidebar()">
             <mat-icon>menu</mat-icon>
           </button>
           <div>

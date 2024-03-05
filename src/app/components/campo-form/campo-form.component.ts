@@ -5,6 +5,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { SharedInfoFormService } from '../../services/shared-info-form.service';
 
 interface Demanda {
   titulo: string;
@@ -20,6 +21,7 @@ interface ClienteInfo {
   endereco: string;
   cep: number;
   telefone: number;
+  demandas: Demanda[];
 }
 
 @Component({
@@ -33,9 +35,7 @@ export class CampoFormComponent {
 
   @Output() sendData = new EventEmitter<any>();
 
-  sendDataToSibling() {
-    this.sendData.emit({ message: 'Hello from Component A' });
-  }
+  constructor(private sharedInfoFormService: SharedInfoFormService) {}
 
   checked = false;
   length = 0;
@@ -57,7 +57,8 @@ export class CampoFormComponent {
     email: '',
     endereco: '',
     cep: 0,
-    telefone: 0
+    telefone: 0,
+    demandas: []
   };
 
   @ViewChild('descricaoInput')
@@ -91,11 +92,18 @@ export class CampoFormComponent {
       horasBackEnd: ''
     };
 
-    console.log(this.demandas);
   }
 
 
   adicionarInfoCliente() {
+
+  //  console.log(this.clienteAtual);
+
+
+    this.sharedInfoFormService.enviarClienteAtual(this.clienteAtual);
+
+
+    this.clienteAtual.demandas = this.demandas.slice();
     this.clientes.push({ ...this.clienteAtual });
 
     this.clienteAtual = {
@@ -103,9 +111,13 @@ export class CampoFormComponent {
       email: '',
       endereco: '',
       cep: 0,
-      telefone: 0
+      telefone: 0,
+      demandas: []
     };
 
-    console.log(this.clientes);
+    this.demandas = [];
+
+   // console.log(this.clientes);
+
   }
 }

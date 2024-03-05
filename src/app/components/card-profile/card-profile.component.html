@@ -71,7 +71,20 @@
             records all of his own music, giving it a warm, intimate feel with a
             solid groove structure. An artist of considerable range.
           </p>
-          <div>Data received from A: {{ dataFromSibling }}</div>
+          <div>
+            <h2>Dados Recebidos no Componente B</h2>
+            <p>{{ clienteAtual.nome }}</p>
+            <p>{{ clienteAtual.email }}</p>
+            <h3>Demandas:</h3>
+            <ul>
+              <li *ngFor="let demanda of clienteAtual.demandas">
+                <p>Título: {{ demanda.titulo }}</p>
+                <p>Descrição: {{ demanda.descricao }}</p>
+                <!-- Adicione mais campos conforme necessário -->
+              </li>
+            </ul>
+
+          </div>
           <a href="#" class="info__link">
             Show more
           </a>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { AdminNavbarComponent } from '../../components/admin-navbar/admin-navbar.component';
@@ -21,7 +21,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
   templateUrl: './orcamento.component.html',
   styleUrl: './orcamento.component.scss'
 })
-export class OrcamentoComponent implements OnInit {
+export class OrcamentoComponent {
   @ViewChild('snav') snav!: MatSidenav;
 
   isScrolled = false;
@@ -32,27 +32,12 @@ export class OrcamentoComponent implements OnInit {
     this.isScrolled = window.scrollY > 50;
   }
 
-  mobileQuery: MediaQueryList;
-
-  private _mobileQueryListener: () => void;
-
   constructor(private media: MediaMatcher, private changeDetectorRef: ChangeDetectorRef) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => this.changeDetectorRef.detectChanges();
   }
 
-  ngOnInit(): void {
-    this.mobileQuery.addListener(this._mobileQueryListener);
-  }
-
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
 
   toggleSidebar(): void {
-    if (this.mobileQuery.matches) {
-      // Apenas fecha o sidebar quando a tela é menor ou igual a 600px
+
       this.snav.toggle();
-    }
   }
 }

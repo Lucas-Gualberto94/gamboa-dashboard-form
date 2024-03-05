@@ -1,4 +1,4 @@
-import { Component, HostListener,  ChangeDetectorRef, ViewChild, OnInit } from '@angular/core';
+import { Component, HostListener,  ChangeDetectorRef, ViewChild } from '@angular/core';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { CardProfileComponent } from '../../components/card-profile/card-profile.component';
@@ -25,18 +25,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.scss'
 })
-export class FormularioComponent implements OnInit {
+export class FormularioComponent {
 
 
   dataToPass: any;
 
-  receiveDataFromChildA(data: any) {
-    this.dataToPass = data;
-  }
 
-  sendDataToChildB() {
-    // Usar this.dataToPass para enviar dados para o Componente B
-  }
 
   @ViewChild('snav') snav!: MatSidenav;
 
@@ -49,28 +43,11 @@ export class FormularioComponent implements OnInit {
   }
 
 
-  mobileQuery: MediaQueryList;
+  constructor(private media: MediaMatcher, private changeDetectorRef: ChangeDetectorRef) { }
 
-  private _mobileQueryListener: () => void;
-
-  constructor(private media: MediaMatcher, private changeDetectorRef: ChangeDetectorRef) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => this.changeDetectorRef.detectChanges();
-  }
-
-  ngOnInit(): void {
-    this.mobileQuery.addListener(this._mobileQueryListener);
-  }
-
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
 
   toggleSidebar(): void {
-    if (this.mobileQuery.matches) {
-      // Apenas fecha o sidebar quando a tela é menor ou igual a 600px
       this.snav.toggle();
     }
-  }
 
 }
