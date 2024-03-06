@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 export class SharedInfoFormService {
 
   private clienteAtualSubject = new Subject<any>();
+  private checkedSubject = new BehaviorSubject<boolean>(false);
 
   enviarClienteAtual(clienteAtual: any) {
     this.clienteAtualSubject.next(clienteAtual);
@@ -14,5 +15,14 @@ export class SharedInfoFormService {
 
   obterClienteAtual() {
     return this.clienteAtualSubject.asObservable();
+  }
+
+
+  obterChecked() {
+    return this.checkedSubject.asObservable();
+  }
+
+  definirChecked(checked: boolean) {
+    this.checkedSubject.next(checked);
   }
 }

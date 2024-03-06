@@ -65,6 +65,11 @@ export class CampoFormComponent {
   descricaoInput!: ElementRef;
 
 
+  onCheckboxChange(event: any) {
+    this.sharedInfoFormService.definirChecked(event.checked);
+  }
+
+
   toggleCampoTexto() {
     this.mostrarCampoTexto = !this.mostrarCampoTexto;
     if (this.mostrarCampoTexto) {
@@ -92,13 +97,12 @@ export class CampoFormComponent {
       horasBackEnd: ''
     };
 
+    this.mostrarCampoTexto = false;
+
   }
 
 
   adicionarInfoCliente() {
-
-  //  console.log(this.clienteAtual);
-
 
     this.sharedInfoFormService.enviarClienteAtual(this.clienteAtual);
 
@@ -117,7 +121,6 @@ export class CampoFormComponent {
 
     this.demandas = [];
 
-   // console.log(this.clientes);
 
   }
 }

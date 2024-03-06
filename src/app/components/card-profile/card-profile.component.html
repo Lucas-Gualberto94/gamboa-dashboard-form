@@ -13,81 +13,52 @@
         </div>
       </div>
       <div class="card__container">
-        <div class="card-conteudo">
-          <div class="conteudo__text">
-            <span
-              class="conteudo__numero"
-            >
-              22
-            </span>
-            <span class="span__description">Friends</span>
-          </div>
-          <div class="conteudo__text">
-            <span
-              class="conteudo__numero"
-            >
-              10
-            </span>
-            <span class="span__description">Photos</span>
-          </div>
-          <div class="conteudo__text">
-            <span
-              class="conteudo__numero"
-            >
-              89
-            </span>
-            <span class="span__description">Comments</span>
-          </div>
-        </div>
+
       </div>
     </div>
     <div class="text-center">
       <h3
         class="text__title"
       >
-        Jenna Stones
+      Nome do Cliente:<p *ngIf="clienteAtual"> {{ clienteAtual.nome }} </p>
       </h3>
       <div
         class="text__address"
       >
-        <i class="text__icone"></i>
-        Los Angeles, California
+      <mat-icon>home</mat-icon>
+        <p *ngIf="clienteAtual">{{ clienteAtual.endereco }}</p>
+        <p *ngIf="clienteAtual">{{ clienteAtual.cep }}</p>
       </div>
+
       <div class="icon_x">
-        <i class="text__icone"></i>
-        Solution Manager - Creative Tim Officer
+        <mat-icon>contact_mail</mat-icon>
+        <p *ngIf="clienteAtual">{{ clienteAtual.email }}</p>
       </div>
+
       <div class="icon_x">
-        <i class="text__icone"></i>
-        University of Computer Science
+        <mat-icon>call</mat-icon>
+        <p *ngIf="clienteAtual">
+          {{ checked ? 'WhatsApp: ' : ''}}
+          {{ clienteAtual.telefone }}
+        </p>
+
+
       </div>
+
     </div>
     <div class="card__info">
       <div class="container__card">
         <div class="container__info">
-          <p class="info__text">
-            An artist of considerable range, Jenna the name taken by
-            Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and
-            records all of his own music, giving it a warm, intimate feel with a
-            solid groove structure. An artist of considerable range.
-          </p>
-          <div>
-            <h2>Dados Recebidos no Componente B</h2>
-            <p>{{ clienteAtual.nome }}</p>
-            <p>{{ clienteAtual.email }}</p>
-            <h3>Demandas:</h3>
-            <ul>
+            <h2>Demandas:</h2>
+            <ul *ngIf="clienteAtual && clienteAtual.demandas">
               <li *ngFor="let demanda of clienteAtual.demandas">
                 <p>Título: {{ demanda.titulo }}</p>
                 <p>Descrição: {{ demanda.descricao }}</p>
-                <!-- Adicione mais campos conforme necessário -->
+                <p>Horas Front-End: {{ demanda.horasFrontEnd }} h </p>
+                <p>Horas Back-End: {{ demanda.horasBackEnd }} h </p>
+                <hr/>
               </li>
             </ul>
-
-          </div>
-          <a href="#" class="info__link">
-            Show more
-          </a>
         </div>
       </div>
     </div>
